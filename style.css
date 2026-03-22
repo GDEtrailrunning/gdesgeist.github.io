@@ -252,10 +252,10 @@ video {
 .sub-container h4::after {
   content: "";
   position: absolute;
-  right: 16px;
-  bottom: 0px;
+  right: 10px;
+  bottom: 10px;
   width: 160px;   /* Aumenta el ancho de la imagen */
-  height: 120px;  /* Aumenta el alto de la imagen */
+  height: 100px;  /* Aumenta el alto de la imagen */
   background: url('2.jpg') no-repeat right bottom;
   background-size: contain;
   opacity: 0.9;

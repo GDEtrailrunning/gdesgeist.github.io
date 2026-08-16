@@ -2,11 +2,101 @@ document.addEventListener("DOMContentLoaded", function () {
   //actualizarDiasRestantes();
   //setInterval(actualizarDiasRestantes, 24*60*60*1000); // Actualizar diario
   // Datos para el gráfico de líneas
-const dataLine1 = {
+  const chartFontFamily = '"Tajawal", Arial, sans-serif';
+  const sharedChartOptions = {
+    responsive: true,
+    maintainAspectRatio: false,
+    interaction: {
+      mode: 'index',
+      intersect: false
+    },
+    plugins: {
+      legend: {
+        labels: {
+          color: '#374151',
+          font: {
+            family: chartFontFamily,
+            size: 12,
+            weight: '700'
+          },
+          padding: 14
+        }
+      },
+      tooltip: {
+        titleFont: {
+          family: chartFontFamily,
+          size: 13,
+          weight: '700'
+        },
+        bodyFont: {
+          family: chartFontFamily,
+          size: 12
+        },
+        backgroundColor: 'rgba(17, 24, 39, 0.95)',
+        titleColor: '#ffffff',
+        bodyColor: '#ffffff',
+        cornerRadius: 10,
+        padding: 10
+      }
+    },
+    scales: {
+      x: {
+        ticks: {
+          color: '#4b5563',
+          font: {
+            family: chartFontFamily,
+            size: 12,
+            weight: '600'
+          },
+          maxRotation: 0,
+          autoSkip: true
+        },
+        grid: {
+          color: 'rgba(15, 23, 42, 0.08)',
+          drawBorder: false
+        },
+        border: {
+          color: 'rgba(15, 23, 42, 0.16)'
+        }
+      },
+      y: {
+        beginAtZero: true,
+        ticks: {
+          color: '#4b5563',
+          font: {
+            family: chartFontFamily,
+            size: 12,
+            weight: '600'
+          }
+        },
+        grid: {
+          color: 'rgba(15, 23, 42, 0.08)',
+          drawBorder: false
+        },
+        border: {
+          color: 'rgba(15, 23, 42, 0.16)'
+        }
+      }
+    },
+    elements: {
+      line: {
+        borderWidth: 2.5,
+        tension: 0.25
+      },
+      point: {
+        radius: 3.5,
+        hoverRadius: 5,
+        borderWidth: 1,
+        backgroundColor: 'rgba(45, 74, 62, 1)',
+        borderColor: 'rgba(45, 74, 62, 1)'
+      }
+    }
+  };
+  const dataLine1 = {
   labels: ['Día 1', 'Día 2', 'Día 3', 'Día 4'], // Etiquetas de los días
   datasets: [{
     label: 'Km recorridos en Semana 25',
-    data: [6, 4, 10, 13], // Datos de los km recorridos en cada día
+    data: [10, 8, 10, 15], // Datos de los km recorridos en cada día
     borderColor: 'rgba(75, 192, 192, 1)',
     fill: true,
     tension: 0.1
@@ -17,7 +107,7 @@ const dataLine2 = {
   labels: ['Día 1', 'Día 2', 'Día 3', 'Día 4'], // Etiquetas de los días
   datasets: [{
     label: 'Km recorridos en Semana 26',
-    data: [13, 13, 12, 15], // Datos de los km recorridos en cada día
+    data: [13, 15, 12, 16], // Datos de los km recorridos en cada día
     borderColor: 'rgba(153, 102, 255, 1)',
     fill: true,
     tension: 0.1

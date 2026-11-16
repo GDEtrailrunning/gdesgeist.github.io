@@ -118,6 +118,31 @@ const myChartLine2 = new Chart(document.getElementById('myChart-line-2'), {
     }
   }
 });
+let expandedContainer = null;
+
+document.querySelectorAll("video").forEach((video) => {
+  const container = video.closest(".image-container");
+  if (!container) return;
+
+  const closeExpandedView = () => {
+    container.classList.remove("video-expanded");
+    document.body.classList.remove("video-expanded-open");
+    expandedContainer = null;
+  };
+
+  video.addEventListener("play", () => {
+    if (expandedContainer && expandedContainer !== container) {
+      expandedContainer.classList.remove("video-expanded");
+    }
+
+    expandedContainer = container;
+    container.classList.add("video-expanded");
+    document.body.classList.add("video-expanded-open");
+  });
+
+  video.addEventListener("pause", closeExpandedView);
+  video.addEventListener("ended", closeExpandedView);
+});
 
 function actualizarDiasRestantes() {
   // Fecha objetivo fija
